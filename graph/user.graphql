@@ -1,0 +1,25 @@
+
+type User {
+  id: ID!
+  name: String!
+  password: String!
+  email: String!
+}
+
+input NewUser {
+  name: String!
+  password: String!
+  email: String!
+}
+
+input UpdateUser {
+  id: ID!
+  name: String!
+  password: String!
+  email: String!
+}
+
+type UserOps {
+    create(input: NewUser!): User! @goField(forceResolver: true)
+    delete(id: Int!): String! @goField(forceResolver: true)
+}
